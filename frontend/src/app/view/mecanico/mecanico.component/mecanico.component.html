@@ -1,0 +1,60 @@
+@for (m of userMecanico; track m.id) {
+
+<div class="card mecanico-card mb-4 shadow-sm">
+
+  <div class="row g-0 align-items-center">
+
+    <div class="col-md-3 text-center p-3">
+      <img src="https://via.placeholder.com/120"
+           class="img-fluid rounded-circle mecanico-img">
+    </div>
+
+    <div class="col-md-6">
+      <div class="card-body">
+
+        <h5 class="card-title text-primary fw-bold">
+          {{ m.nombre }}
+        </h5>
+
+        <p class="card-text mb-1">
+          🔧 <strong>Especialidad:</strong> {{ m.especialidad }}
+        </p>
+
+        <p class="card-text mb-1">
+          📍 <strong>Ciudad:</strong> {{ m.ciudad }}
+        </p>
+
+        <p class="card-text mb-1">
+          � <strong>Experiencia:</strong> {{ m.experiencia }} años
+        </p>
+
+        @if (m.disponible) {
+          <span class="badge bg-success">
+            Disponible
+          </span>
+        }
+
+        @if (!m.disponible) {
+          <span class="badge bg-secondary">
+            No disponible
+          </span>
+        }
+
+      </div>
+    </div>
+
+    <div class="col-md-3 text-center p-3">
+
+      <button class="btn btn-primary w-100 mb-2">
+        Aceptar servicio
+      </button>
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+}
