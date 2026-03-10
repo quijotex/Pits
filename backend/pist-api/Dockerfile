@@ -19,4 +19,4 @@ COPY --from=build /app/target/*.jar app.jar
 # Render inyecta PORT=10000 en runtime; EXPOSE 10000 para que el escáner de Render compruebe el puerto correcto
 ENV PORT=10000
 EXPOSE 10000
-ENTRYPOINT ["sh", "-c", "java -Dserver.port=${PORT} -Dserver.address=0.0.0.0 -jar app.jar"]
+ENTRYPOINT ["sh", "-c", "java -Dserver.port=${PORT} -Dserver.address=0.0.0.0 -Dspring.jpa.defer-datasource-initialization=true -jar app.jar"]
