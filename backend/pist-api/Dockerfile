@@ -16,6 +16,7 @@ FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
-ENV PORT=8080
-EXPOSE $PORT
+# Render inyecta PORT=10000 en runtime; EXPOSE 10000 para que el escáner de Render compruebe el puerto correcto
+ENV PORT=10000
+EXPOSE 10000
 ENTRYPOINT ["sh", "-c", "java -Dserver.port=${PORT} -Dserver.address=0.0.0.0 -jar app.jar"]
